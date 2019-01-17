@@ -18,7 +18,9 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     private var imagePickerViewController: UIImagePickerController!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupImagePickerViewController()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -59,7 +61,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         if let image = detailImage.image, let text = decriptionText.text{
             if let imageData = image.jpegData(compressionQuality: 0.5){
-            let photoJournal = Photo.init(imageData: imageData, description: text, createdAt: "no date")
+            let photoJournal = Photo.init(imageData: imageData, description: text, createdAt: "6/6/6")
             PhotoJournalModel.addPhoto(photo: photoJournal)
         }
         }
@@ -78,4 +80,5 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         showImagePickerController()
     }
 }
+
 

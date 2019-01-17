@@ -10,7 +10,6 @@ import Foundation
 
 struct Photo: Codable, Equatable {
     let imageData: Data
-    let title: String
     let description: String
     let createdAt: String
     public var dateFormattedString: String {

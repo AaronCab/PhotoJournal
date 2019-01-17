@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -18,19 +19,11 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImagePickerViewController()
-        updateUI()
         // Do any additional setup after loading the view.
     }
+
     private func showImagePickerController(){
         present(imagePickerViewController, animated: true, completion: nil)
-    }
-    private func updateUI(){
-        if let photoJournal =  PhotoJournalModel.getPhotoJournal(){
-            let image = UIImage(data: photoJournal.imageData)
-            detailImage.image = image
-        } else {
-            print("there is no image")
-        }
     }
     private func setupImagePickerViewController(){
         imagePickerViewController = UIImagePickerController()
@@ -41,9 +34,10 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     private func savePhoto(image: UIImage) {
         if let imageData = image.jpegData(compressionQuality: 0.5){
-            let photoJournal = Photo.init(imageData: imageData, title: "Title", description: description, createdAt: "no date")
-            PhotoJournalModel.savePhotoJournal(photoJournal: photoJournal)
+            let photoJournal = Photo.init(imageData: imageData, description: decriptionText.text, createdAt: "no date")
+            PhotoJournalModel.addPhoto(photo: photoJournal)
         }
+        
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
@@ -52,7 +46,6 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             detailImage.image = image
-            savePhoto(image: image)
         } else {
             print("original image is nil")
         }
@@ -64,7 +57,16 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        if let image = detailImage.image, let text = decriptionText.text{
+            if let imageData = image.jpegData(compressionQuality: 0.5){
+            let photoJournal = Photo.init(imageData: imageData, description: text, createdAt: "no date")
+            PhotoJournalModel.addPhoto(photo: photoJournal)
+        }
+        }
+        dismiss(animated: true, completion: nil)
+        
     }
+    
     
     
     @IBAction func photoLibraryButton(_ sender: UIBarButtonItem) {
@@ -72,6 +74,8 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func cameraButton(_ sender: UIBarButtonItem) {
+        imagePickerViewController.sourceType = .camera
+        showImagePickerController()
     }
 }
 

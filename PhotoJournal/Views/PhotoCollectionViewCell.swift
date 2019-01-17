@@ -17,5 +17,9 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     
     @IBAction func editButton(_ sender: UIButton) {
+       let activityController = UIActivityViewController(activityItems: [dateLabel.text!], applicationActivities: nil)
+        
+        
     }
+    
 }

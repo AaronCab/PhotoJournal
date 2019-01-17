@@ -39,7 +39,25 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
             camerButton.isEnabled = false
         }
     }
-    
+    private func savePhoto(image: UIImage) {
+        if let imageData = image.jpegData(compressionQuality: 0.5){
+            let photoJournal = Photo.init(imageData: imageData, title: "Title", description: description, createdAt: "no date")
+            PhotoJournalModel.savePhotoJournal(photoJournal: photoJournal)
+        }
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            detailImage.image = image
+            savePhoto(image: image)
+        } else {
+            print("original image is nil")
+        }
+        dismiss(animated: true, completion: nil)
+    }
 
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -56,3 +74,4 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func cameraButton(_ sender: UIBarButtonItem) {
     }
 }
+

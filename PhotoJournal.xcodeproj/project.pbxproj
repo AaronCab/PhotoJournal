@@ -12,6 +12,11 @@
 		934928EC21ED1AF700D3108B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934928EA21ED1AF700D3108B /* Main.storyboard */; };
 		934928EE21ED1AF900D3108B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934928ED21ED1AF900D3108B /* Assets.xcassets */; };
 		934928F121ED1AF900D3108B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934928EF21ED1AF900D3108B /* LaunchScreen.storyboard */; };
+		9349295621EFE40F00D3108B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349295521EFE40F00D3108B /* DetailViewController.swift */; };
+		9349295821F0FFDC00D3108B /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349295721F0FFDC00D3108B /* PhotoCollectionViewCell.swift */; };
+		9349295A21F1029A00D3108B /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349295921F1029A00D3108B /* DataPersistenceManager.swift */; };
+		9349295C21F102BD00D3108B /* JournalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349295B21F102BD00D3108B /* JournalModel.swift */; };
+		9349295E21F1041C00D3108B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349295D21F1041C00D3108B /* Photo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		934928ED21ED1AF900D3108B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		934928F021ED1AF900D3108B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		934928F221ED1AF900D3108B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9349295521EFE40F00D3108B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9349295721F0FFDC00D3108B /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		9349295921F1029A00D3108B /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
+		9349295B21F102BD00D3108B /* JournalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalModel.swift; sourceTree = "<group>"; };
+		9349295D21F1041C00D3108B /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +66,12 @@
 			children = (
 				934928E621ED1AF700D3108B /* AppDelegate.swift */,
 				934928E821ED1AF700D3108B /* ViewController.swift */,
+				9349295921F1029A00D3108B /* DataPersistenceManager.swift */,
+				9349295B21F102BD00D3108B /* JournalModel.swift */,
 				934928EA21ED1AF700D3108B /* Main.storyboard */,
+				9349295721F0FFDC00D3108B /* PhotoCollectionViewCell.swift */,
+				9349295D21F1041C00D3108B /* Photo.swift */,
+				9349295521EFE40F00D3108B /* DetailViewController.swift */,
 				934928ED21ED1AF900D3108B /* Assets.xcassets */,
 				934928EF21ED1AF900D3108B /* LaunchScreen.storyboard */,
 				934928F221ED1AF900D3108B /* Info.plist */,
@@ -135,8 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9349295E21F1041C00D3108B /* Photo.swift in Sources */,
+				9349295621EFE40F00D3108B /* DetailViewController.swift in Sources */,
+				9349295821F0FFDC00D3108B /* PhotoCollectionViewCell.swift in Sources */,
 				934928E921ED1AF700D3108B /* ViewController.swift in Sources */,
+				9349295C21F102BD00D3108B /* JournalModel.swift in Sources */,
 				934928E721ED1AF700D3108B /* AppDelegate.swift in Sources */,
+				9349295A21F1029A00D3108B /* DataPersistenceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

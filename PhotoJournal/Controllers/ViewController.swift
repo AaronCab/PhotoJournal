@@ -37,8 +37,9 @@ class ViewController: UIViewController {
         let editButton = UIAlertAction(title: "Edit", style: .default, handler: { (action) in
             
         })
-        let deleteButton = UIAlertAction(title: "Delete", style: .default, handler: { (action) in
-            
+        let deleteButton = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+            PhotoJournalModel.delete(atIndex: sender.tag)
+            self.photos = PhotoJournalModel.getPhotoJournal()
         })
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
             
@@ -48,7 +49,7 @@ class ViewController: UIViewController {
 
             alert.addAction(editButton)
             alert.addAction(deleteButton)
-        alert.addAction(cancelButton)
+            alert.addAction(cancelButton)
        
         self.present(alert, animated: true, completion: nil)
     }

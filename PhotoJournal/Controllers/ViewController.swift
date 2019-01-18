@@ -21,13 +21,13 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-   
+    
     override func viewWillAppear(_ animated: Bool) {
-         photos = PhotoJournalModel.getPhotoJournal()
+        photos = PhotoJournalModel.getPhotoJournal()
         
     }
     
-  
+    
     @IBAction func editButton(_ sender: UIButton) {
         print(sender.tag)
         let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .actionSheet)
@@ -45,10 +45,8 @@ class ViewController: UIViewController {
             viewController.photoIndex = photoIndex
             
             self.present(viewController, animated: true, completion: nil)
-           
-          //  viewController.decriptionText.text = self.photos[sender.tag].description
-
-
+                        
+            
         })
         
         let deleteButton = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
@@ -58,13 +56,13 @@ class ViewController: UIViewController {
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
             
         }
-
-            alert.addAction(shareButton)
-
-            alert.addAction(editButton)
-            alert.addAction(deleteButton)
-            alert.addAction(cancelButton)
-       
+        
+        alert.addAction(shareButton)
+        
+        alert.addAction(editButton)
+        alert.addAction(deleteButton)
+        alert.addAction(cancelButton)
+        
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -75,7 +73,7 @@ extension ViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell()}
         let dataToSet = photos[indexPath.row]
@@ -87,7 +85,7 @@ extension ViewController: UICollectionViewDataSource{
         return cell
     }
     
-
+    
 }
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

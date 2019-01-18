@@ -12,14 +12,14 @@ final class PhotoJournalModel {
     private static let filename = "PhotoJournalList.plist"
     private static var photos = PhotoJournalModel.getPhotoJournal()
     //making the initializer private
-
+    
     static func getPhotoJournal() -> [Photo]{
         let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename).path
         var photoJournal = [Photo]()
         if FileManager.default.fileExists(atPath: path){
             if let data = FileManager.default.contents(atPath: path){
                 do {
-                    photoJournal =  try PropertyListDecoder().decode([Photo].self, from: data).sorted{$0.date > $1.date}
+                    photoJournal =  try PropertyListDecoder().decode([Photo].self, from: data)
                 } catch {
                     print("property list deccoding error: \(error)")
                 }

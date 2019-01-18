@@ -29,7 +29,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
             decriptionText.text = photo.description
         }
     }
-
+    
     private func showImagePickerController(){
         present(imagePickerViewController, animated: true, completion: nil)
     }
@@ -59,7 +59,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
         dismiss(animated: true, completion: nil)
     }
-
+    
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }

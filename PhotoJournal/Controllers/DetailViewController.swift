@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    var placeHolderText = "Description..."
     @IBOutlet weak var camerButton: UIBarButtonItem!
     @IBOutlet weak var decriptionText: UITextView!
     
@@ -18,7 +18,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     private var imagePickerViewController: UIImagePickerController!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        decriptionText.delegate = self
         setupImagePickerViewController()
         
         // Do any additional setup after loading the view.
@@ -88,5 +88,18 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         showImagePickerController()
     }
 }
-
+extension DetailViewController: UITextViewDelegate{
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == placeHolderText{
+            textView.text = ""
+            textView.textColor = .black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == ""{
+            textView.text = placeHolderText
+            textView.textColor = .lightGray
+        }
+    }
+}
 

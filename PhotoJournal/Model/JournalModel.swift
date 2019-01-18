@@ -12,16 +12,7 @@ final class PhotoJournalModel {
     private static let filename = "PhotoJournalList.plist"
     private static var photos = [Photo]()
     //making the initializer private
-    private init () {}
-    static func savePhotoJournal(photoJournal: Photo){
-        let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename)
-        do {
-            let data = try PropertyListEncoder().encode(photoJournal)
-            try data.write(to: path, options: Data.WritingOptions.atomic)
-        } catch {
-            print("poroperty list encoding error")
-        }
-    }
+
     static func getPhotoJournal() -> [Photo]{
         let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename).path
         var photoJournal = [Photo]()
@@ -45,7 +36,7 @@ final class PhotoJournalModel {
         save()
     }
     
-    static func delete(photo: Photo, atIndex index: Int) {
+    static func delete(atIndex index: Int) {
         photos.remove(at: index)
         save()
     }
@@ -54,7 +45,9 @@ final class PhotoJournalModel {
         let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename)
         do {
             let data = try PropertyListEncoder().encode(photos)
+            
             try data.write(to: path, options: Data.WritingOptions.atomic)
+            
         } catch {
             print("property list encoding error: \(error)")
         }

@@ -9,8 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var photos = PhotoJournalModel.getPhotoJournal()
+    var photos = PhotoJournalModel.getPhotoJournal(){
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
@@ -19,12 +24,37 @@ class ViewController: UIViewController {
    
     override func viewWillAppear(_ animated: Bool) {
          photos = PhotoJournalModel.getPhotoJournal()
-        collectionView.reloadData()
         
     }
     
   
-   
+    @IBAction func editButton(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .actionSheet)
+        
+        let shareButton = UIAlertAction(title: "Share", style: .default, handler: { (action) in
+            
+        })
+        let editButton = UIAlertAction(title: "Edit", style: .default, handler: { (action) in
+            
+        })
+        let deleteButton = UIAlertAction(title: "Delete", style: .default, handler: { (action) in
+            
+        })
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+            
+        }
+
+            alert.addAction(shareButton)
+
+            alert.addAction(editButton)
+            alert.addAction(deleteButton)
+        alert.addAction(cancelButton)
+       
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
 }
 extension ViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -39,6 +69,7 @@ extension ViewController: UICollectionViewDataSource{
         cell.photoImage.image = UIImage(data: dataToSet.imageData)
         return cell
     }
+    
 
 }
 extension ViewController: UICollectionViewDelegateFlowLayout {

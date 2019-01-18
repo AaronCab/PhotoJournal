@@ -63,7 +63,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
             if let imageData = image.jpegData(compressionQuality: 0.5){
             let photoJournal = Photo.init(imageData: imageData, description: text, createdAt: "6/6/6")
             PhotoJournalModel.addPhoto(photo: photoJournal)
-        }
+            }
         }
         dismiss(animated: true, completion: nil)
         

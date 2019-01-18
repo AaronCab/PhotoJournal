@@ -60,6 +60,7 @@
                                                             </state>
                                                             <connections>
                                                                 <action selector="editButton:" destination="oxV-RR-3HZ" eventType="touchUpInside" id="3q1-nN-IDQ"/>
+                                                                <action selector="editButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y0Q-1K-9pN"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>

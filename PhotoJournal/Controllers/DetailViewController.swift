@@ -16,11 +16,18 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBOutlet weak var detailImage: UIImageView!
     private var imagePickerViewController: UIImagePickerController!
+    
+    var photo: Photo?
+    var photoIndex: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         decriptionText.delegate = self
         setupImagePickerViewController()
-        
+        if let photo = photo {
+            detailImage.image = UIImage(data: photo.imageData)
+            decriptionText.text = photo.description
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -69,12 +76,15 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         let timestamp = isoDateFormatter.string(from: date)
         if let image = detailImage.image, let text = decriptionText.text{
             if let imageData = image.jpegData(compressionQuality: 0.5){
-            let photoJournal = Photo.init(imageData: imageData, description: text, createdAt: timestamp)
-            PhotoJournalModel.addPhoto(photo: photoJournal)
+                let photoJournal = Photo.init(imageData: imageData, description: text, createdAt: timestamp)
+                if photo == nil {
+                    PhotoJournalModel.addPhoto(photo: photoJournal)
+                } else {
+                    PhotoJournalModel.updateItem(updatedItem: photoJournal, atIndex: photoIndex!)
+                }
             }
         }
         dismiss(animated: true, completion: nil)
-        
     }
     
     

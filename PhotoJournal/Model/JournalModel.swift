@@ -56,7 +56,7 @@ final class PhotoJournalModel {
     }
     
     static func updateItem(updatedItem: Photo, atIndex index: Int) {
-        photos.insert(photos[index], at: index)
+        photos[index] = updatedItem
         save()
     }
 }

@@ -33,17 +33,20 @@ class ViewController: UIViewController {
         let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .actionSheet)
         
         let shareButton = UIAlertAction(title: "Share", style: .default, handler: { (action) in
-            
+            // need code
         })
         let editButton = UIAlertAction(title: "Edit", style: .default, handler: { (action) in
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
             guard let viewController = storyBoard.instantiateViewController(withIdentifier: "DetailViewID") as? DetailViewController else { return }
             
-                        self.present(viewController, animated: true, completion: nil)
+            let photo = PhotoJournalModel.getPhotoJournal()[sender.tag]
+            let photoIndex = sender.tag
+            viewController.photo = photo
+            viewController.photoIndex = photoIndex
+            
+            self.present(viewController, animated: true, completion: nil)
            
-            viewController.decriptionText.text = self.photos[sender.tag].description
-            PhotoJournalModel.updateItem(updatedItem: self.photos[sender.tag], atIndex: sender.tag)
-            self.photos = PhotoJournalModel.getPhotoJournal()
+          //  viewController.decriptionText.text = self.photos[sender.tag].description
 
 
         })
@@ -79,10 +82,6 @@ extension ViewController: UICollectionViewDataSource{
         cell.descriptionLabel.text = dataToSet.description
         cell.dateLabel.text = dataToSet.dateFormattedString
         cell.photoImage.image = UIImage(data: dataToSet.imageData)
-//        let red = CGFloat(134/255)
-//        let blue = CGFloat(147/255)
-//        let green = CGFloat(186/255)
-//        cell.backgroundColor = UIColor.init(red: red, green: green, blue: blue, alpha: CGFloat(1))
         cell.layer.cornerRadius = 100
         cell.editButton.tag = indexPath.row
         return cell

@@ -35,8 +35,18 @@ class ViewController: UIViewController {
             
         })
         let editButton = UIAlertAction(title: "Edit", style: .default, handler: { (action) in
+            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+            guard let viewController = storyBoard.instantiateViewController(withIdentifier: "DetailViewID") as? DetailViewController else { return }
             
+                        self.present(viewController, animated: true, completion: nil)
+            viewController.decriptionText.text = self.photos[sender.tag].description
+            PhotoJournalModel.updateItem(updatedItem: self.photos[sender.tag], atIndex: sender.tag)
+
+            self.photos = PhotoJournalModel.getPhotoJournal()
+
+
         })
+        
         let deleteButton = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
             PhotoJournalModel.delete(atIndex: sender.tag)
             self.photos = PhotoJournalModel.getPhotoJournal()
@@ -68,6 +78,7 @@ extension ViewController: UICollectionViewDataSource{
         cell.descriptionLabel.text = dataToSet.description
         cell.dateLabel.text = dataToSet.createdAt
         cell.photoImage.image = UIImage(data: dataToSet.imageData)
+        cell.layer.cornerRadius = 175
         return cell
     }
     

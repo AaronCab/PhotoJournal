@@ -79,7 +79,10 @@ extension ViewController: UICollectionViewDataSource{
         cell.descriptionLabel.text = dataToSet.description
         cell.dateLabel.text = dataToSet.dateFormattedString
         cell.photoImage.image = UIImage(data: dataToSet.imageData)
-        cell.photoImage.layer.cornerRadius = 120
+//        let red = CGFloat(134/255)
+//        let blue = CGFloat(147/255)
+//        let green = CGFloat(186/255)
+//        cell.backgroundColor = UIColor.init(red: red, green: green, blue: blue, alpha: CGFloat(1))
         cell.layer.cornerRadius = 100
         cell.editButton.tag = indexPath.row
         return cell

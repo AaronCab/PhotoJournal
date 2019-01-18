@@ -47,13 +47,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cBt-Pm-Q9c">
-                                                    <rect key="frame" x="36" y="58" width="303" height="113.5"/>
+                                                    <rect key="frame" x="18" y="28" width="339" height="190.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="113.5" id="zhn-GH-zvM"/>
+                                                        <constraint firstAttribute="width" secondItem="cBt-Pm-Q9c" secondAttribute="height" multiplier="16:9" id="AXS-Mf-xu7"/>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1t-h0-HOz">
-                                                    <rect key="frame" x="317" y="191.5" width="30" height="40"/>
+                                                    <rect key="frame" x="319" y="224" width="30" height="40"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                     <state key="normal" title=". . .">
                                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,19 +64,19 @@
                                                 </button>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.60465282201766968" green="0.92026251554489136" blue="0.73542410135269165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="cBt-Pm-Q9c" firstAttribute="top" secondItem="oxV-RR-3HZ" secondAttribute="topMargin" constant="30" id="8ug-o7-r3F"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="yav-1W-wKs" secondAttribute="trailing" constant="10" id="96i-pk-nix"/>
-                                            <constraint firstItem="S1t-h0-HOz" firstAttribute="leading" secondItem="oxV-RR-3HZ" secondAttribute="leadingMargin" constant="309" id="CRU-G2-3oY"/>
                                             <constraint firstItem="YuU-t7-elQ" firstAttribute="top" secondItem="yav-1W-wKs" secondAttribute="bottom" constant="10" id="Mfr-qm-dNO"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="cBt-Pm-Q9c" secondAttribute="trailing" constant="28" id="NK8-zC-L64"/>
                                             <constraint firstItem="yav-1W-wKs" firstAttribute="leading" secondItem="oxV-RR-3HZ" secondAttribute="leadingMargin" constant="10" id="PlP-9B-GIq"/>
+                                            <constraint firstItem="cBt-Pm-Q9c" firstAttribute="leading" secondItem="oxV-RR-3HZ" secondAttribute="leadingMargin" constant="10" id="QDx-hd-cwE"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="YuU-t7-elQ" secondAttribute="bottom" constant="50" id="XTR-Y9-5IW"/>
-                                            <constraint firstItem="cBt-Pm-Q9c" firstAttribute="leading" secondItem="oxV-RR-3HZ" secondAttribute="leadingMargin" constant="28" id="ZY2-Iq-rhu"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="S1t-h0-HOz" secondAttribute="trailing" constant="18" id="XZt-ye-NqC"/>
+                                            <constraint firstItem="S1t-h0-HOz" firstAttribute="leading" secondItem="oxV-RR-3HZ" secondAttribute="leadingMargin" constant="311" id="bf5-7z-QDS"/>
                                             <constraint firstItem="YuU-t7-elQ" firstAttribute="leading" secondItem="oxV-RR-3HZ" secondAttribute="leadingMargin" constant="10" id="ehG-o9-UtE"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="S1t-h0-HOz" secondAttribute="trailing" constant="20" id="lHJ-Ag-4Qb"/>
-                                            <constraint firstItem="S1t-h0-HOz" firstAttribute="top" secondItem="cBt-Pm-Q9c" secondAttribute="bottom" constant="20" id="xyv-x1-vOM"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="cBt-Pm-Q9c" secondAttribute="trailing" constant="10" id="faw-sJ-aoo"/>
+                                            <constraint firstItem="cBt-Pm-Q9c" firstAttribute="top" secondItem="oxV-RR-3HZ" secondAttribute="topMargin" id="iw1-Kh-0vh"/>
+                                            <constraint firstItem="S1t-h0-HOz" firstAttribute="top" secondItem="cBt-Pm-Q9c" secondAttribute="bottom" constant="5.5" id="s8R-vg-P3q"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="YuU-t7-elQ" secondAttribute="trailing" constant="10" id="zDo-2e-dkG"/>
                                         </constraints>
                                         <connections>

@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     
   
     @IBAction func editButton(_ sender: UIButton) {
+        print(sender.tag)
         let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .actionSheet)
         
         let shareButton = UIAlertAction(title: "Share", style: .default, handler: { (action) in
@@ -42,7 +43,6 @@ class ViewController: UIViewController {
            
             viewController.decriptionText.text = self.photos[sender.tag].description
             PhotoJournalModel.updateItem(updatedItem: self.photos[sender.tag], atIndex: sender.tag)
-
             self.photos = PhotoJournalModel.getPhotoJournal()
 
 
@@ -77,9 +77,10 @@ extension ViewController: UICollectionViewDataSource{
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell()}
         let dataToSet = photos[indexPath.row]
         cell.descriptionLabel.text = dataToSet.description
-        cell.dateLabel.text = dataToSet.createdAt
+        cell.dateLabel.text = dataToSet.dateFormattedString
         cell.photoImage.image = UIImage(data: dataToSet.imageData)
-        cell.layer.cornerRadius = 175
+        cell.photoImage.layer.cornerRadius = 120
+        cell.layer.cornerRadius = 100
         cell.editButton.tag = indexPath.row
         return cell
     }

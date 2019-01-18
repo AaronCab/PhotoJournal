@@ -59,9 +59,17 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        let date = Date()
+        let isoDateFormatter = ISO8601DateFormatter()
+        isoDateFormatter.formatOptions = [.withFullDate,
+                                          .withFullTime,
+                                          .withInternetDateTime,
+                                          .withTimeZone,
+                                          .withDashSeparatorInDate]
+        let timestamp = isoDateFormatter.string(from: date)
         if let image = detailImage.image, let text = decriptionText.text{
             if let imageData = image.jpegData(compressionQuality: 0.5){
-            let photoJournal = Photo.init(imageData: imageData, description: text, createdAt: "6/6/6")
+            let photoJournal = Photo.init(imageData: imageData, description: text, createdAt: timestamp)
             PhotoJournalModel.addPhoto(photo: photoJournal)
             }
         }

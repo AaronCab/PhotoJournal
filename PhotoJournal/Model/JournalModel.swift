@@ -10,7 +10,7 @@ import Foundation
 
 final class PhotoJournalModel {
     private static let filename = "PhotoJournalList.plist"
-    private static var photos = [Photo]()
+    private static var photos = PhotoJournalModel.getPhotoJournal()
     //making the initializer private
 
     static func getPhotoJournal() -> [Photo]{
@@ -31,7 +31,8 @@ final class PhotoJournalModel {
         }
         return photoJournal
     }
-    static func addPhoto(photo: Photo) {
+    static func addPhoto(photo: Photo
+        ) {
         photos.append(photo)
         save()
     }

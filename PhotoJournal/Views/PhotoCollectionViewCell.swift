@@ -16,6 +16,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     
-  
+    @IBOutlet weak var editButton: UIButton!
+    
     
 }

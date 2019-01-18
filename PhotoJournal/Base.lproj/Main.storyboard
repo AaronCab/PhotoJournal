@@ -47,7 +47,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YuU-t7-elQ">
-                                                            <rect key="frame" x="39" y="209" width="240" height="21"/>
+                                                            <rect key="frame" x="39" y="209" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -77,7 +77,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="yav-1W-wKs" secondAttribute="trailing" constant="40" id="cM4-Hk-rIW"/>
                                                         <constraint firstItem="YuU-t7-elQ" firstAttribute="top" secondItem="yav-1W-wKs" secondAttribute="bottom" constant="25" id="n3M-9i-lK8"/>
                                                         <constraint firstItem="YuU-t7-elQ" firstAttribute="top" secondItem="yav-1W-wKs" secondAttribute="bottom" constant="25" id="oMI-Nh-QMG"/>
-                                                        <constraint firstAttribute="trailing" secondItem="YuU-t7-elQ" secondAttribute="trailing" constant="40" id="pim-eQ-WUE"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YuU-t7-elQ" secondAttribute="trailing" constant="20" symbolic="YES" id="pim-eQ-WUE"/>
                                                         <constraint firstItem="S1t-h0-HOz" firstAttribute="leading" secondItem="f2m-Iw-kYh" secondAttribute="leading" constant="233" id="qqD-Pu-LnF"/>
                                                         <constraint firstItem="yav-1W-wKs" firstAttribute="top" secondItem="cBt-Pm-Q9c" secondAttribute="bottom" constant="35" id="s3c-gX-gpX"/>
                                                         <constraint firstItem="S1t-h0-HOz" firstAttribute="top" secondItem="cBt-Pm-Q9c" secondAttribute="bottom" constant="8" id="yfJ-LS-Zcs"/>
@@ -94,6 +94,7 @@
                                         <connections>
                                             <outlet property="dateLabel" destination="YuU-t7-elQ" id="MI5-pM-rq5"/>
                                             <outlet property="descriptionLabel" destination="yav-1W-wKs" id="ddN-Gv-lR7"/>
+                                            <outlet property="editButton" destination="S1t-h0-HOz" id="snr-GU-fa4"/>
                                             <outlet property="photoImage" destination="cBt-Pm-Q9c" id="uuZ-NT-3Mc"/>
                                         </connections>
                                     </collectionViewCell>

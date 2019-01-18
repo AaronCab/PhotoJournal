@@ -39,6 +39,7 @@ class ViewController: UIViewController {
             guard let viewController = storyBoard.instantiateViewController(withIdentifier: "DetailViewID") as? DetailViewController else { return }
             
                         self.present(viewController, animated: true, completion: nil)
+           
             viewController.decriptionText.text = self.photos[sender.tag].description
             PhotoJournalModel.updateItem(updatedItem: self.photos[sender.tag], atIndex: sender.tag)
 
@@ -79,6 +80,7 @@ extension ViewController: UICollectionViewDataSource{
         cell.dateLabel.text = dataToSet.createdAt
         cell.photoImage.image = UIImage(data: dataToSet.imageData)
         cell.layer.cornerRadius = 175
+        cell.editButton.tag = indexPath.row
         return cell
     }
     

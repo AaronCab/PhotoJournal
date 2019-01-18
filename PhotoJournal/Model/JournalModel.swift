@@ -19,7 +19,7 @@ final class PhotoJournalModel {
         if FileManager.default.fileExists(atPath: path){
             if let data = FileManager.default.contents(atPath: path){
                 do {
-                    photoJournal =  try PropertyListDecoder().decode([Photo].self, from: data)
+                    photoJournal =  try PropertyListDecoder().decode([Photo].self, from: data).sorted{$0.date > $1.date}
                 } catch {
                     print("property list deccoding error: \(error)")
                 }

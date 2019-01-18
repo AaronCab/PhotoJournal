@@ -28,7 +28,6 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
             detailImage.image = UIImage(data: photo.imageData)
             decriptionText.text = photo.description
         }
-        // Do any additional setup after loading the view.
     }
 
     private func showImagePickerController(){
